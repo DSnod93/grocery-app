@@ -13,6 +13,9 @@ import { QUERY_PRODUCTS } from "../utils/queries";
 import spinner from '../assets/spinner.gif'
 import Cart from '../components/Cart';
 
+import Auth from '../utils/auth';
+import CommentList from '../components/CommentList';
+import CommentForm from '../components/CommentForm';
 
 function Detail() {
   const [state, dispatch] = useStoreContext();
@@ -116,12 +119,21 @@ function Detail() {
             src={`/images/${currentProduct.image}`}
             alt={currentProduct.name}
           />
+        {console.log(currentProduct)}
+
+        {Auth.loggedIn() && <CommentForm currentProductId={currentProduct._id} />}
+
+        <CommentList comments={currentProduct.comments} />
+
         </div>
+
       ) : null}
       {
         loading ? <img src={spinner} alt="loading" /> : null
       }
       <Cart />
+
+
     </>
   );
 };
