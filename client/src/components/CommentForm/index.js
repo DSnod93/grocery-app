@@ -20,8 +20,7 @@ const CommentForm = ({ currentProductId }) => {
 
   // submit form
   const handleFormSubmit = async event => {
-    event.preventDefault();
-    console.log(commentBody)
+    // event.preventDefault();
 
     try {
       await addComment({
