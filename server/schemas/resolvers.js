@@ -144,13 +144,14 @@ const resolvers = {
     },
     addComment: async (parent, { productId, commentBody }, context) => {
       if (context.user) {
-        const updatedProduct = await Thought.findOneAndUpdate(
+        const updatedProduct = await Product.findOneAndUpdate(
           { _id: productId },
-          { $push: { reactions: { commentBody, writtenBy: context.user.firstName } } },
+          { $push: { comments: { commentBody, writtenBy: context.user.firstName } } },
           { new: true, runValidators: true }
         );
     
         return updatedProduct;
+
       }
     
       throw new AuthenticationError('You need to be logged in!');

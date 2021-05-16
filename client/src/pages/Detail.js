@@ -119,7 +119,6 @@ function Detail() {
             src={`/images/${currentProduct.image}`}
             alt={currentProduct.name}
           />
-        {console.log(currentProduct)}
 
         {Auth.loggedIn() && <CommentForm currentProductId={currentProduct._id} />}
 
