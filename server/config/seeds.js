@@ -5,11 +5,16 @@ db.once('open', async () => {
   await Category.deleteMany();
 
   const categories = await Category.insertMany([
-    { name: 'Food' },
-    { name: 'Household Supplies' },
-    { name: 'Electronics' },
-    { name: 'Books' },
-    { name: 'Toys' }
+    { name: 'Deli' },
+    { name: 'Dairy' },
+    { name: 'Produce' },
+    { name: 'Bakery' },
+    { name: 'Frozen' },
+    { name: 'Snacks'},
+    { name: 'Beverages'},
+    { name:'Condiments'},
+    { name: 'Alcohol'},
+    { name: 'Seafood'}
   ]);
 
   console.log('categories seeded');
@@ -18,109 +23,429 @@ db.once('open', async () => {
 
   const products = await Product.insertMany([
     {
-      name: 'Tin of Cookies',
+      name: 'Ham',
       description:
-        'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
-      image: 'cookie-tin.jpg',
+        'Bone in or bone out. Sliced or unsliced',
+      image: 'ham.jpg',
+      category: categories[0]._id,
+      price: 2.99,
+      quantity: 500,
+      comments: [
+        {
+          writtenBy: 'Pamela',
+          commentBody: 'This is a test' 
+        },
+        {
+          writtenBy: 'Elijah',
+          commentBody: 'This is also a test' 
+        },
+        {
+          writtenBy: 'Pamela',
+          commentBody: 'This is yet another test' 
+        }
+      ]
+    },
+    {
+      name: 'Beef',
+      description:
+        'Eaten since prehistoric times and paired with many dishes',
+      image: 'beef.jpg',
+      category: categories[0]._id,
+      price: 5.99,
+      quantity: 500
+    },
+    {
+      name: 'Chicken',
+      description:
+        'Most common and widely used in a variety of dishes',
+      image: 'chicken.jpg',
       category: categories[0]._id,
       price: 2.99,
       quantity: 500
     },
     {
-      name: 'Canned Coffee',
+      name: 'Pork',
       description:
-        'Praesent sed lacinia mauris. Nulla congue nibh magna, at feugiat nunc scelerisque quis. Donec iaculis rutrum vulputate. Suspendisse lectus sem, vulputate ac lectus sed, placerat consequat dui.',
-      image: 'canned-coffee.jpg',
+        'Another commonly used meat worldwide',
+      image: 'pork.jpg',
+      category: categories[0]._id,
+      price: 5.99,
+      quantity: 500
+    },
+    {
+      name: 'Turkey',
+      description:
+        'The lighter option and comes straight from the source',
+      image: 'turkey.jpg',
       category: categories[0]._id,
       price: 1.99,
       quantity: 500
     },
     {
-      name: 'Toilet Paper',
+      name: 'Milk',
       category: categories[1]._id,
       description:
-        'Donec volutpat erat erat, sit amet gravida justo sodales in. Phasellus tempus euismod urna. Proin ultrices nisi ut ipsum congue, vitae porttitor libero suscipit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam lacinia a nisi non congue.',
-      image: 'toilet-paper.jpg',
+        'Varieties including plant based',
+      image: 'milk.jpg',
       price: 7.99,
       quantity: 20
     },
     {
-      name: 'Handmade Soap',
+      name: 'Eggs',
       category: categories[1]._id,
       description:
-        'Praesent placerat, odio vel euismod venenatis, lectus arcu laoreet felis, et fringilla sapien turpis vestibulum nisl.',
-      image: 'soap.jpg',
+        'From farm raised to free range',
+      image: 'eggs.jpg',
       price: 3.99,
       quantity: 50
     },
     {
-      name: 'Set of Wooden Spoons',
+      name: 'Cheese',
       category: categories[1]._id,
       description:
-        'Vivamus ut turpis in purus pretium mollis. Donec turpis odio, semper vel interdum ut, vulputate at ex. Duis dignissim nisi vel tortor imperdiet finibus. Aenean aliquam sagittis rutrum.',
-      image: 'wooden-spoons.jpg',
-      price: 14.99,
+        'Paired with crackers or even your favorite dishes',
+      image: 'cheese.jpg',
+      price: 5.99,
       quantity: 100
     },
     {
-      name: 'Camera',
+      name: 'Yogurt',
+      category: categories[1]._id,
+      description:
+        'Grab and go to start your morning',
+      image: 'yogurt.jpg',
+      price: 6.99,
+      quantity: 100
+    },
+    {
+      name: 'Butter',
+      category: categories[1]._id,
+      description:
+        'Add to any dish to give it flavor',
+      image: 'butter.jpg',
+      price: 4.99,
+      quantity: 100
+    },
+    {
+      name: 'Spinach',
       category: categories[2]._id,
       description:
-        'Vestibulum risus metus, luctus non tortor quis, tincidunt consectetur ex. Nullam vitae lobortis ligula, ut sagittis massa. Curabitur consectetur, tellus at pulvinar venenatis, erat augue cursus erat, eu ullamcorper eros lectus ultrices ipsum. Integer rutrum, augue vitae auctor venenatis, turpis turpis elementum orci, at sagittis risus mi a leo.',
-      image: 'camera.jpg',
-      price: 399.99,
+        'Eat your greens!',
+      image: 'spinach.jpg',
+      price: 5.99,
       quantity: 30
     },
     {
-      name: 'Tablet',
+      name: 'Lettuce',
       category: categories[2]._id,
       description:
-        'In sodales, ipsum quis ultricies porttitor, tellus urna aliquam arcu, eget venenatis purus ligula ut nisi. Fusce ut felis dolor. Mauris justo ante, aliquet non tempus in, tempus ac lorem. Aliquam lacinia dolor eu sem eleifend ultrices. Etiam mattis metus metus. Sed ligula dui, placerat non turpis vitae, suscipit volutpat elit. Phasellus sagittis, diam elementum suscipit fringilla, libero mauris scelerisque ex, ac interdum diam erat non sapien.',
-      image: 'tablet.jpg',
-      price: 199.99,
+        'Eat your greens!',
+      image: 'lettuce.jpg',
+      price: 5.99,
       quantity: 30
     },
     {
-      name: 'Tales at Bedtime',
+      name: 'Tomato',
+      category: categories[2]._id,
+      description:
+        'Goes great in salads and pasta',
+      image: 'tomatoes.jpg',
+      price: 2.99,
+      quantity: 30
+    },
+    {
+      name: 'Onion',
+      category: categories[2]._id,
+      description:
+        'Will leave you in tears after cutting',
+      image: 'onion.jpg',
+      price: 3.99,
+      quantity: 30
+    },
+    {
+      name: 'Garlic',
+      category: categories[2]._id,
+      description:
+        'Keeps all the evil spirits away',
+      image: 'garlic.jpg',
+      price: 3.99,
+      quantity: 30
+    },
+    {
+      name: 'Bread',
       category: categories[3]._id,
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ornare diam quis eleifend rutrum. Aliquam nulla est, volutpat non enim nec, pharetra gravida augue. Donec vitae dictum neque. Pellentesque arcu lorem, fringilla non ligula ac, tristique bibendum erat. Ut a semper nibh. Quisque a mi et mi tempor ultricies. Maecenas eu ipsum eu enim hendrerit accumsan at euismod urna.',
-      image: 'bedtime-book.jpg',
+        'Hot commodity since the Kings and Queens',
+      image: 'bread.jpg',
+      price: 6.99,
+      quantity: 100
+    },
+    {
+      name: 'Cookies',
+      category: categories[3]._id,
+      description:
+        'Can never go wrong here',
+      image: 'cookies.jpg',
       price: 9.99,
       quantity: 100
     },
     {
-      name: 'Spinning Top',
+      name: 'Cupcakes',
+      category: categories[3]._id,
+      description:
+        'Always a welcoming treat',
+      image: 'cupcake.jpg',
+      price: 9.99,
+      quantity: 100
+    },
+    {
+      name: 'Bagels',
+      category: categories[3]._id,
+      description:
+        'Pair with eggs and cream cheese',
+      image: 'bagel.jpg',
+      price: 6.99,
+      quantity: 100
+    },
+    {
+      name: 'Ice cream',
       category: categories[4]._id,
-      description: 'Ut vulputate hendrerit nibh, a placerat elit cursus interdum.',
-      image: 'spinning-top.jpg',
+      description: 'Sundays best',
+      image: 'ice-cream.jpg',
       price: 1.99,
       quantity: 1000
     },
     {
-      name: 'Set of Plastic Horses',
+      name: 'Frozen Pizza',
       category: categories[4]._id,
       description:
-        'Sed a mauris condimentum, elementum enim in, rhoncus dui. Phasellus lobortis leo odio, sit amet pharetra turpis porta quis.',
-      image: 'plastic-horses.jpg',
+        'Straight out of the oven',
+      image: 'pizza.jpg',
       price: 2.99,
       quantity: 1000
     },
     {
-      name: 'Teddy Bear',
+      name: 'TV Dinner',
       category: categories[4]._id,
       description:
-        'Vestibulum et erat finibus erat suscipit vulputate sed vitae dui. Ut laoreet tellus sit amet justo bibendum ultrices. Donec vitae felis vestibulum, congue augue eu, finibus turpis.',
-      image: 'teddy-bear.jpg',
-      price: 7.99,
-      quantity: 100
+        'Right out of the microwave',
+      image: 'frozen-dinner.jpg',
+      price: 9.99,
+      quantity: 600
     },
     {
-      name: 'Alphabet Blocks',
+      name: 'Frozen Vegetables',
       category: categories[4]._id,
       description:
-        'Morbi consectetur viverra urna, eu fringilla turpis faucibus sit amet. Suspendisse potenti. Donec at dui ac sapien eleifend hendrerit vel sit amet lectus.',
-      image: 'alphabet-blocks.jpg',
+        'Second best next to produce',
+      image: 'frozen-veggies.jpg',
+      price: 9.99,
+      quantity: 600
+    },
+    {
+      name: 'Mochi',
+      category: categories[4]._id,
+      description:
+        'Melts right in your mouth',
+      image: 'mochi.jpg',
+      price: 9.99,
+      quantity: 600
+    },
+    {
+      name: 'Candy Bars',
+      category: categories[5]._id,
+      description:
+        'Grab me at the checkout',
+      image: 'candy.jpg',
+      price: 1.99,
+      quantity: 600
+    },
+    {
+      name: 'Chips',
+      category: categories[5]._id,
+      description:
+        'A party friend',
+      image: 'chips.jpg',
+      price: 7.99,
+      quantity: 600
+    },
+    {
+      name: 'Snack Bars',
+      category: categories[5]._id,
+      description:
+        'Take one for the long trip ahead',
+      image: 'snack-bar.jpg',
+      price: 7.99,
+      quantity: 600
+    },
+    {
+      name: 'Energy Bars',
+      category: categories[5]._id,
+      description:
+        'Kickstart your day',
+      image: 'energy-bar.jpg',
+      price: 11.99,
+      quantity: 600
+    },
+    {
+      name: 'Trail Mix',
+      category: categories[5]._id,
+      description:
+        "I'm a hikers best friend",
+      image: 'trail-mix.jpg',
+      price: 9.99,
+      quantity: 600
+    },
+    {
+      name: 'Soda',
+      category: categories[6]._id,
+      description:
+        'Sugar sugar sugar',
+      image: 'soda.jpg',
+      price: 1.99,
+      quantity: 600
+    },
+    {
+      name: 'Water',
+      category: categories[6]._id,
+      description:
+        'Hydrate hydrate hydrate',
+      image: 'water.jpg',
+      price: 1.99,
+      quantity: 600
+    },
+    {
+      name: 'Juice',
+      category: categories[6]._id,
+      description:
+        'Concentrate concentrate concentrate',
+      image: 'juice.jpg',
+      price: 3.99,
+      quantity: 600
+    },
+    {
+      name: 'Sports Drink',
+      category: categories[6]._id,
+      description:
+        'Fuel up!',
+      image: 'sports-drink.jpg',
+      price: 3.99,
+      quantity: 600
+    },
+    {
+      name: 'Energy Drink',
+      category: categories[6]._id,
+      description:
+        'Kickstart',
+      image: 'energy-drink.jpg',
+      price: 4.99,
+      quantity: 600
+    },
+    {
+      name: 'Ketchup',
+      category: categories[7]._id,
+      description:
+        'Extra extra',
+      image: 'ketchup.jpg',
+      price: 6.99,
+      quantity: 600
+    },
+    {
+      name: 'Mustard',
+      category: categories[7]._id,
+      description:
+        'Extra',
+      image: 'mustard.jpg',
+      price: 6.99,
+      quantity: 600
+    },
+    {
+      name: 'Mayonaise',
+      category: categories[7]._id,
+      description:
+        'Extra extra',
+      image: 'mayo.jpg',
+      price: 6.99,
+      quantity: 600
+    },
+    {
+      name: 'Relish',
+      category: categories[7]._id,
+      description:
+        'Extra extra',
+      image: 'relish.jpg',
+      price: 6.99,
+      quantity: 600
+    },
+    {
+      name: 'Pickles',
+      category: categories[7]._id,
+      description:
+        'Sour and salty',
+      image: 'pickles.jpg',
+      price: 9.99,
+      quantity: 600
+    },
+    {
+      name: 'Beer',
+      category: categories[8]._id,
+      description:
+        'Chugga chugga',
+      image: 'beer.jpg',
+      price: 9.99,
+      quantity: 600
+    },
+    {
+      name: 'Wine',
+      category: categories[8]._id,
+      description:
+        'Grapevine',
+      image: 'wine.jpg',
+      price: 9.99,
+      quantity: 600
+    },
+    {
+      name: 'Shrimp',
+      category: categories[9]._id,
+      description:
+        'Bottom feeders of the sea',
+      image: 'shrimp.jpg',
+      price: 9.99,
+      quantity: 600
+    },
+    {
+      name: 'Crabs',
+      category: categories[9]._id,
+      description:
+        'Catch me if you can',
+      image: 'crab.jpg',
+      price: 9.99,
+      quantity: 600
+    },
+    {
+      name: 'Lobsters',
+      category: categories[9]._id,
+      description:
+        'Ready to grab you',
+      image: 'lobster.jpg',
+      price: 9.99,
+      quantity: 600
+    },
+    {
+      name: 'Fish',
+      category: categories[9]._id,
+      description:
+        'There is a school of us',
+      image: 'fish.jpg',
+      price: 9.99,
+      quantity: 600
+    },
+    {
+      name: 'Oysters',
+      category: categories[9]._id,
+      description:
+        'Slimy slimy',
+      image: 'oysters.jpg',
       price: 9.99,
       quantity: 600
     }
@@ -147,6 +472,13 @@ db.once('open', async () => {
     lastName: 'Holt',
     email: 'eholt@testmail.com',
     password: 'password12345'
+  });
+
+  await User.create({
+    firstName: 'Test',
+    lastName: 'User',
+    email: 'test@email.com',
+    password: 'password'
   });
 
   console.log('users seeded');
