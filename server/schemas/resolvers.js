@@ -160,6 +160,25 @@ const resolvers = {
     
       throw new AuthenticationError('You need to be logged in!');
     },
+    vote: async (parent, { productId, vote }, context) => {
+      if (context.user) {
+        const updatedProduct = await Product.findOneAndUpdate(
+          { _id: productId },
+          { $push: { comments: { vote, writtenBy: context.user.firstName } } },
+          { new: true, runValidators: true }
+        );
+
+        if(!context.user) {
+          
+        }
+
+        return updatedProduct;
+
+      }
+    
+      throw new AuthenticationError('You need to be logged in!');
+    },
+
   }
 };
 

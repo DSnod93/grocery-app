@@ -14,6 +14,7 @@ function Nav() {
 
     if (Auth.loggedIn()) {
       return (
+ version/materialize
         <>
           <nav>
             <div className="nav-wrapper lime darken-3">
@@ -82,6 +83,60 @@ function Nav() {
   //   </div>
 
   // );
+
+        <nav className="navbar" role="navigation" aria-label="dropdown navigation">
+          <div className="navbar-item has-dropdown is-hoverable">
+            <a className="navbar-link">
+              Menu
+            </a>
+
+            <div className="navbar-dropdown">
+              <Link to="/orderHistory" className="navbar-item">
+                Order History
+              </Link>
+              <a href="/" onClick={() => Auth.logout()} className="navbar-item">
+                Logout
+              </a>
+            </div>
+          </div>
+        </nav>
+      );
+    } else {
+      return (
+        <nav className="navbar" role="navigation" aria-label="dropdown navigation">
+          <div className="navbar-item has-dropdown is-hoverable">
+            <a className="navbar-link">
+              Menu
+            </a>
+
+            <div className="navbar-dropdown">
+              <Link to="/signup" className="navbar-item">
+                Sign Up
+              </Link>
+              <Link to="/login" className="navbar-item">
+                Login
+              </Link>
+            </div>
+          </div>
+        </nav>
+      );
+    }
+  }
+
+  return (
+    <header className="flex-row px-1">
+      <h1>
+        <Link to="/">
+          FoodChain
+        </Link>
+      </h1>
+
+      <nav>
+        {showNavigation()}
+      </nav>
+    </header>
+  );
+ main
 }
 
 export default Nav;
