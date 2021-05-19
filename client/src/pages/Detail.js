@@ -93,6 +93,7 @@ function Detail() {
     <>
     {currentProduct ? (
       <div className="container my-1">
+        <br/>
       <Link to="/">
         ← Back to Products
       </Link>
@@ -124,6 +125,10 @@ function Detail() {
 
       {Auth.loggedIn() && <CommentForm currentProductId={currentProduct._id} />}
 
+      <br/>
+      <hr/>
+      <br/>
+
       <CommentList comments={currentProduct.comments} />
 
       </div>
@@ -133,48 +138,6 @@ function Detail() {
         loading ? <img src={spinner} alt="loading" /> : null
       }
       <Cart />
-
-      {/* {currentProduct ? (
-        <div className="container my-1">
-          <Link to="/">
-            ← Back to Products
-          </Link>
-
-          <h2>{currentProduct.name}</h2>
-
-          <p>
-            {currentProduct.description}
-          </p>
-
-          <p>
-            <strong>Price:</strong>
-            ${currentProduct.price}
-            {" "}
-            <button onClick={addToCart}>
-              Add to Cart
-            </button>
-            <button disabled={!cart.find(p => p._id === currentProduct._id)} onClick={removeFromCart}>
-              Remove from Cart
-            </button>
-          </p>
-
-          <img
-            src={`/images/${currentProduct.image}`}
-            alt={currentProduct.name}
-          />
-
-        {Auth.loggedIn() && <CommentForm currentProductId={currentProduct._id} />}
-
-        <CommentList comments={currentProduct.comments} />
-
-        </div>
-
-      ) : null}
-      {
-        loading ? <img src={spinner} alt="loading" /> : null
-      }
-      <Cart /> */}
-
 
     </>
   );
