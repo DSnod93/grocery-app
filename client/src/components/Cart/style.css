@@ -10,6 +10,7 @@
     padding: .5rem;
     box-shadow: 0 0 1rem rgba(0, 0, 0, .5);
     border-bottom-left-radius: .5rem;
+    z-index: 9999;
   }
   
   .cart h2 {
@@ -63,6 +64,7 @@
     .cart {
 
       max-width: 100%;
+      min-width: 55%;
       max-height: auto;
       background-color: white;
       box-shadow: 0 0 1rem rgba(0, 0, 0, .5);

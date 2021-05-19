@@ -67,7 +67,7 @@ if (!state.cartOpen) {
     return (
 
       <div className="fixed-action-btn" onClick={toggleCart}>
-        <a className="btn-floating btn-large green pulse">
+        <a className="btn-floating btn-large yellow darken-2 pulse">
           <i className="large material-icons">shopping_cart</i>
         </a>
       </div>
@@ -83,7 +83,7 @@ if (!state.cartOpen) {
                 BACK
             </a>
         </div>
-        <p>Your Cart</p>
+        <p>Your Cart:</p>
         {state.cart.length ? (
             <div>
                 {state.cart.map(item => (
@@ -108,7 +108,7 @@ if (!state.cartOpen) {
             </div>
         ) : (
             <p>
-              Empty
+              is Empty
             </p>
         )}
     </div>

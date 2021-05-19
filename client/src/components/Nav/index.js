@@ -16,7 +16,7 @@ function Nav() {
       return (
         <>
           <nav>
-            <div className="nav-wrapper green lighten-1">
+            <div className="nav-wrapper lime darken-3">
               <div className="container">
                 <a href="/" className="brand-logo">GroceryApp</a>
                 <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>

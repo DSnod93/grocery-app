@@ -38,7 +38,7 @@ const CommentForm = ({ currentProductId }) => {
 
   return (
     <div>
-      <h3> Leave a Comment </h3>
+      <span> Leave a Comment </span>
       <form
         className="flex-row justify-center justify-space-between-md align-stretch"
         onSubmit={handleFormSubmit}
@@ -49,14 +49,16 @@ const CommentForm = ({ currentProductId }) => {
           className="form-input col-12 col-md-9"
           onChange={handleChange}
         ></textarea>
-
-        <button className="btn col-12 col-md-3" type="submit">
-          Submit
-        </button>
-
+        
         <p className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}>
         Character Count: {characterCount}/280
         </p>
+
+        <button className="btn col-12 col-md-3 blue" type="submit">
+          Submit
+        </button>
+
+        
       </form>
 
       {error && <div>Something went wrong...</div>}

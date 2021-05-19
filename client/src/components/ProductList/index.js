@@ -47,7 +47,6 @@ function ProductList() {
 
   return (
     <div className="row">
-      <h2>Our Products:</h2>
 
           {state.products.length ? (
             <div className="row">
