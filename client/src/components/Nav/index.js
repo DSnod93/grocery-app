@@ -7,34 +7,41 @@ function Nav() {
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
-        <ul className="flex-row">
-          <li className="mx-1">
-            <Link to="/orderHistory">
-              Order History
-            </Link>
-          </li>
-          <li className="mx-1">
-            {/* this is not using the Link component to logout or user and then refresh the application to the start */}
-            <a href="/" onClick={() => Auth.logout()}>
-              Logout
+        <nav className="navbar" role="navigation" aria-label="dropdown navigation">
+          <div className="navbar-item has-dropdown is-hoverable">
+            <a className="navbar-link">
+              Menu
             </a>
-          </li>
-        </ul>
+
+            <div className="navbar-dropdown">
+              <Link to="/orderHistory" className="navbar-item">
+                Order History
+              </Link>
+              <a href="/" onClick={() => Auth.logout()} className="navbar-item">
+                Logout
+              </a>
+            </div>
+          </div>
+        </nav>
       );
     } else {
       return (
-        <ul className="flex-row">
-          <li className="mx-1">
-            <Link to="/signup">
-              Signup
-            </Link>
-          </li>
-          <li className="mx-1">
-            <Link to="/login">
-              Login
-            </Link>
-          </li>
-        </ul>
+        <nav className="navbar" role="navigation" aria-label="dropdown navigation">
+          <div className="navbar-item has-dropdown is-hoverable">
+            <a className="navbar-link">
+              Menu
+            </a>
+
+            <div className="navbar-dropdown">
+              <Link to="/signup" className="navbar-item">
+                Sign Up
+              </Link>
+              <Link to="/login" className="navbar-item">
+                Login
+              </Link>
+            </div>
+          </div>
+        </nav>
       );
     }
   }
@@ -43,8 +50,7 @@ function Nav() {
     <header className="flex-row px-1">
       <h1>
         <Link to="/">
-          <span role="img" aria-label="shopping bag">🛍️</span>
-          -Shop-Shop
+          FoodChain
         </Link>
       </h1>
 

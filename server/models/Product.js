@@ -30,8 +30,10 @@ const productSchema = new Schema({
       ref: 'Category',
       required: true
     },
-    comments: [commentSchema]
+    comments: [commentSchema],
+    votes: [{ userId: String, vote: Number }]
   },
+  
   {
     toJSON: {
       getters: true
