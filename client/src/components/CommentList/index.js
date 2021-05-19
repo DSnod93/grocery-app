@@ -7,7 +7,7 @@ const CommentList = ({ comments }) => {
       <ul className="collection">
         {comments &&
         comments.map(comments => (
-          <li className="collection-item avatar" key="uniqueId1">
+          <li className="collection-item avatar" key={comments._id}>
               <i className="material-icons circle">face</i>
             <p key={comments._id}>
               {comments.commentBody}</p>
