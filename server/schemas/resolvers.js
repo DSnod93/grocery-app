@@ -141,7 +141,21 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
-    }
+    },
+    addComment: async (parent, { productId, commentBody }, context) => {
+      if (context.user) {
+        const updatedProduct = await Product.findOneAndUpdate(
+          { _id: productId },
+          { $push: { comments: { commentBody, writtenBy: context.user.firstName } } },
+          { new: true, runValidators: true }
+        );
+    
+        return updatedProduct;
+
+      }
+    
+      throw new AuthenticationError('You need to be logged in!');
+    },
   }
 };
 
