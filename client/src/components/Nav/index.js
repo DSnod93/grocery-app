@@ -1,58 +1,87 @@
 import React from "react";
 import Auth from "../../utils/auth";
-import { Link } from "react-router-dom";
+
+// For mobile nav initialization
+const M =window.M;
+
+// Initializes the mobile nav
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems, {});
+  });
 
 function Nav() {
 
-  function showNavigation() {
     if (Auth.loggedIn()) {
       return (
-        <ul className="flex-row">
-          <li className="mx-1">
-            <Link to="/orderHistory">
-              Order History
-            </Link>
-          </li>
-          <li className="mx-1">
-            {/* this is not using the Link component to logout or user and then refresh the application to the start */}
-            <a href="/" onClick={() => Auth.logout()}>
-              Logout
-            </a>
-          </li>
-        </ul>
+        <>
+          <nav>
+            <div className="nav-wrapper green lighten-1">
+              <div className="container">
+                <a href="/" className="brand-logo">GroceryApp</a>
+                <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
+                <ul id="nav-mobile" className="right hide-on-med-and-down">
+                  <li><a href="/orderHistory"><i className="material-icons left" >history</i>Order History</a></li>
+                  <li><a href="/" onClick={() => Auth.logout()}><i className="material-icons left">person_outline</i>Logout</a></li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+          {/* mobile nav */}
+          <ul className="sidenav" id="mobile-demo">
+            <li><a href="/orderHistory"><i className="material-icons left" >history</i>Order History</a></li>
+            <li><a href="/" onClick={() => Auth.logout()}><i className="material-icons left">person_outline</i>Logout</a></li>
+          </ul>          
+        </>
+
       );
     } else {
       return (
-        <ul className="flex-row">
-          <li className="mx-1">
-            <Link to="/signup">
-              Signup
-            </Link>
-          </li>
-          <li className="mx-1">
-            <Link to="/login">
-              Login
-            </Link>
-          </li>
+
+        <>
+
+        <nav>
+          <div className="nav-wrapper green lighten-1">
+            <div className="container">
+              <a href="/" className="brand-logo">GroceryApp</a>
+              <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
+            
+              <ul id="nav-mobile" className="right hide-on-med-and-down">
+                <li><a href="/signup"><i className="material-icons left" >person_add</i>Signup</a></li>
+                <li><a href="/login"><i className="material-icons left">person</i>Login</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+        {/* mobile nav */}
+        <ul className="sidenav" id="mobile-demo">
+          <li><a href="/signup"><i className="material-icons left" >person_add</i>Signup</a></li>
+          <li><a href="/login"><i className="material-icons left">person</i>Login</a></li>
         </ul>
+        
+      </>
+
       );
     }
-  }
+  
 
-  return (
-    <header className="flex-row px-1">
-      <h1>
-        <Link to="/">
-          <span role="img" aria-label="shopping bag">🛍️</span>
-          -Shop-Shop
-        </Link>
-      </h1>
+  // return (
+  //   <div>
+  //     <nav>
+  //       <div className="nav-wrapper green lighten-1">
+  //           <a href="/" className="brand-logo">GroceryApp</a>
+  //           <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
+  //           <ul id="nav-mobile" className="right hide-on-med-and-down">
+  //             {showNavigation()}
+  //           </ul>
+  //       </div>
+  //     </nav>
 
-      <nav>
-        {showNavigation()}
-      </nav>
-    </header>
-  );
+  //   </div>
+
+  // );
 }
 
 export default Nav;

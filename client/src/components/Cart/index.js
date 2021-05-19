@@ -65,42 +65,51 @@ const Cart = () => {
 
 if (!state.cartOpen) {
     return (
-      <div className="cart-closed" onClick={toggleCart}>
-        <span
-          role="img"
-          aria-label="trash">🛒</span>
+
+      <div className="fixed-action-btn" onClick={toggleCart}>
+        <a className="btn-floating btn-large green pulse">
+          <i className="large material-icons">shopping_cart</i>
+        </a>
       </div>
+      
     );
   }
 
   return (
     <div className="cart">
-        <div className="close" onClick={toggleCart}>[close]</div>
-        <h2>Shopping Cart</h2>
+        <div className="close" onClick={toggleCart}>
+            <a className="waves-effect waves-light btn red">
+                <i className="medium material-icons right white-text">chevron_right</i>
+                BACK
+            </a>
+        </div>
+        <p>Your Cart</p>
         {state.cart.length ? (
             <div>
                 {state.cart.map(item => (
                     <CartItem key={item._id} item={item} />
                 ))}
-                <div className="flex-row space-between">
+                <div className="row">
+                    <div className="col s6">
                         <strong>Total: ${calculateTotal()}</strong>
+                        
+                    </div>
+                    <div className="col s6">
                         {
                         Auth.loggedIn() ?
-                        <button onClick={submitCheckout}>
-                        Checkout
+                        <button className="waves-effect waves-light green btn" onClick={submitCheckout}>
+                          Checkout
                         </button>
                         :
                         <span>(log in to check out)</span>
-                    }
+                        }
+                    </div>
                 </div>
             </div>
         ) : (
-            <h3>
-            <span role="img" aria-label="shocked">
-                😱
-            </span>
-            You haven't added anything to your cart yet!
-            </h3>
+            <p>
+              Empty
+            </p>
         )}
     </div>
   );

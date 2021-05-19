@@ -234,7 +234,7 @@ db.once('open', async () => {
       quantity: 600
     },
     {
-      name: 'Frozen Vegetables',
+      name: 'Veggies',
       category: categories[4]._id,
       description:
         'Second best next to produce',
