@@ -50,7 +50,7 @@ function Nav() {
     <header className="flex-row px-1">
       <h1>
         <Link to="/">
-          FoodChain
+          The Food Chain
         </Link>
       </h1>
 
