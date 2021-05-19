@@ -2,19 +2,23 @@ import React from 'react';
 
 const CommentList = ({ comments }) => {
   return (
-    <div className="card mb-6">
-      <h4 className="text-light">Comments</h4>
-      <hr/>
-      <div className="card-body">
+    <>
+      <span>Comments:</span>
+      <ul className="collection">
+        
         {comments &&
-          comments.map(comments => (
-            <p className="pill mb-6" key={comments._id}>
-              {comments.commentBody} by{' '}
-              {comments.writtenBy} on {comments.createdAt}
-            </p>
-          ))}
-      </div>
-    </div>
+        comments.map(comments => (
+          <li className="collection-item avatar" key={comments._id}>
+              <i className="material-icons circle">face</i>
+            <p key={comments._id}>
+              {comments.commentBody}</p>
+            <p>by{' '} {comments.writtenBy} </p>
+            <p>on {comments.createdAt}</p>
+          </li>
+        ))}
+      </ul>
+
+    </>
   );
 };
 

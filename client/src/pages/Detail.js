@@ -91,47 +91,53 @@ function Detail() {
 
   return (
     <>
-      {currentProduct ? (
-        <div className="container my-1">
-          <Link to="/">
-            ← Back to Products
-          </Link>
+    {currentProduct ? (
+      <div className="container my-1">
+        <br/>
+      <Link to="/">
+        ← Back to Products
+      </Link>
+          <div className="col s12 m7">
+              <h4 className="header">{currentProduct.name}</h4>
+              <div className="card horizontal">
+                <div className="card-image">
+                  <img src={`/images/${currentProduct.image}`} alt={currentProduct.name}/>
+                </div>
+                <div className="card-stacked">
+                  <div className="card-content">
+                    <p>{currentProduct.description}</p>
+                  </div>
+                  <div className="card-action">
+                    <div className="row">
+                      <button className="btn waves-effect waves-light green" onClick={addToCart}>
+                        Add to Cart
+                      </button>
+                      <br/>
+                      <br/>
+                      <button className="btn waves-effect waves-light red" disabled={!cart.find(p => p._id === currentProduct._id)} onClick={removeFromCart}>
+                        Remove from Cart
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
 
-          <h2>{currentProduct.name}</h2>
+      {Auth.loggedIn() && <CommentForm currentProductId={currentProduct._id} />}
 
-          <p>
-            {currentProduct.description}
-          </p>
+      <br/>
+      <hr/>
+      <br/>
 
-          <p>
-            <strong>Price:</strong>
-            ${currentProduct.price}
-            {" "}
-            <button onClick={addToCart}>
-              Add to Cart
-            </button>
-            <button disabled={!cart.find(p => p._id === currentProduct._id)} onClick={removeFromCart}>
-              Remove from Cart
-            </button>
-          </p>
+      <CommentList comments={currentProduct.comments} />
 
-          <img
-            src={`/images/${currentProduct.image}`}
-            alt={currentProduct.name}
-          />
-
-        {Auth.loggedIn() && <CommentForm currentProductId={currentProduct._id} />}
-
-        <CommentList comments={currentProduct.comments} />
-
-        </div>
+      </div>
 
       ) : null}
       {
         loading ? <img src={spinner} alt="loading" /> : null
       }
       <Cart />
-
 
     </>
   );
