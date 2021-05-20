@@ -39,23 +39,32 @@ function CategoryMenu() {
   };
 
   return (
-    <div>
-      <h2>Choose a Category:</h2>
-        <button onClick={() => {
-            handleClick()}}>
-        ALL
-        </button>
-      {categories.map(item => (
-        <button
-          key={item._id}
-          onClick={() => {
-            handleClick(item._id);
-          }}
-        >
-          {item.name}
-        </button>
-      ))}
-    </div>
+    <>
+      <br/>
+      <p>Choose a Category:</p>
+      <br/>
+      <div className="row">
+          <div className="col s4">
+            <a onClick={() => {
+                handleClick()}}>
+            ALL
+            </a>
+          </div>
+        {categories.map(item => (
+          <div className="col s4" key={item._id}>
+            <a
+              key={item._id}
+              onClick={() => {
+                handleClick(item._id);
+              }}
+            >
+              {item.name}
+          </a>
+          </div>
+        ))}
+      </div> 
+    </>
+
   );
 }
 
