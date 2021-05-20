@@ -14,36 +14,31 @@ function OrderHistory() {
 
   return (
     <>
-      <div className="container my-1">
+      <div className="container">
         <br/>
         <Link to="/">
           ← Back to Products
-          </Link>
+        </Link>
+
+        <br/>
 
         {user ? (
           <>
             <p>Order History for {user.firstName} {user.lastName}</p>
             {user.orders.map((order) => (
-              <div key={order._id} className="my-2">
-                <span>{new Date(parseInt(order.purchaseDate)).toLocaleDateString()}</span>
-                <div className="flex-row">
-                  {order.products.map(({ _id, image, name, price }, index) => (
-                    <div key={index} className="card px-1 py-1">
-                      <Link to={`/products/${_id}`}>
-                        <img
-                          alt={name}
-                          src={`/images/${image}`}
-                        />
-                        <p>{name}</p>
-                      </Link>
-                      <div>
-                        <span>${price}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+            <ul className="collection with-header" key={order._id}>
+              <li className="collection-header"><p>{new Date(parseInt(order.purchaseDate)).toLocaleDateString()}</p></li>
+              {order.products.map(({ _id, image, name, price }, index) => (
+              <li className="collection-item" key={index}>
+                  <Link to={`/products/${_id}`}>
+                  <p>{name}</p>
+                  </Link>
+                  <span>${price}</span>
+              </li>
+              ))}
+            </ul>
             ))}
+
           </>
         ) : null}
 
