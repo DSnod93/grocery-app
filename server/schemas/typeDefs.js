@@ -15,6 +15,7 @@ const typeDefs = gql`
     price: Float
     category: Category
     comments: [Comment]
+    votes: [Vote]
   }
 
   type Comment {
@@ -22,6 +23,11 @@ const typeDefs = gql`
     commentBody: String
     writtenBy: String
     createdAt: String
+  }
+
+  type Vote {
+    userId: ID
+    vote: Int
   }
 
   type Order {
@@ -59,6 +65,7 @@ const typeDefs = gql`
     updateProduct(_id: ID!, quantity: Int!): Product
     login(email: String!, password: String!): Auth
     addComment(productId: ID!, commentBody: String!): Product
+    vote(productId: ID!, vote: Int!): Product
   }
 
   type Checkout {
