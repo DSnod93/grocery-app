@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/groceryapp', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/thefoodchain', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
