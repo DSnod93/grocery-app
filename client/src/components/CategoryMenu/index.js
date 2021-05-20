@@ -39,19 +39,32 @@ function CategoryMenu() {
   };
 
   return (
-    <div>
-      <h2>Choose a Category:</h2>
-      {categories.map(item => (
-        <button
-          key={item._id}
-          onClick={() => {
-            handleClick(item._id);
-          }}
-        >
-          {item.name}
-        </button>
-      ))}
-    </div>
+    <>
+      <br/>
+      <p>Choose a Category:</p>
+      <br/>
+      <div className="row">
+          <div className="col s4">
+            <a className="waves-effect waves-orange lighten-3 btn-flat" onClick={() => {
+                handleClick()}}>
+            ALL
+            </a>
+          </div>
+        {categories.map(item => (
+          <div className="col s4" key={item._id}>
+            <a className="waves-effect waves-orange lighten-3 btn-flat"
+              key={item._id}
+              onClick={() => {
+                handleClick(item._id);
+              }}
+            >
+              {item.name}
+          </a>
+          </div>
+        ))}
+      </div> 
+    </>
+
   );
 }
 

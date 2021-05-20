@@ -67,7 +67,7 @@ if (!state.cartOpen) {
     return (
 
       <div className="fixed-action-btn" onClick={toggleCart}>
-        <a className="btn-floating btn-large yellow darken-2 pulse">
+        <a className="btn-floating btn-large amber darken-3 pulse">
           <i className="large material-icons">shopping_cart</i>
         </a>
       </div>
