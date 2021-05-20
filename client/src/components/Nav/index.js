@@ -15,6 +15,7 @@ function Nav() {
     if (Auth.loggedIn()) {
       return (
         <>
+          <div className="navbar-fixed">
           <nav>
             <div className="nav-wrapper lime darken-3">
               <div className="container">
@@ -27,12 +28,15 @@ function Nav() {
               </div>
             </div>
           </nav>
+          </div>
 
           {/* mobile nav */}
-          <ul className="sidenav" id="mobile-demo">
-            <li><a href="/orderHistory"><i className="material-icons left" >history</i>Order History</a></li>
-            <li><a href="/" onClick={() => Auth.logout()}><i className="material-icons left">person_outline</i>Logout</a></li>
-          </ul>          
+          
+            <ul className="sidenav" id="mobile-demo">
+              <li><a href="/orderHistory"><i className="material-icons left" >history</i>Order History</a></li>
+              <li><a href="/" onClick={() => Auth.logout()}><i className="material-icons left">person_outline</i>Logout</a></li>
+            </ul>          
+          
         </>
 
       );
@@ -40,26 +44,29 @@ function Nav() {
       return (
 
         <>
-
-        <nav>
-          <div className="nav-wrapper green lighten-1">
-            <div className="container">
-              <a href="/" className="brand-logo">GroceryApp</a>
-              <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
-            
-              <ul id="nav-mobile" className="right hide-on-med-and-down">
-                <li><a href="/signup"><i className="material-icons left" >person_add</i>Signup</a></li>
-                <li><a href="/login"><i className="material-icons left">person</i>Login</a></li>
-              </ul>
+        <div className="navbar-fixed">
+          <nav>
+            <div className="nav-wrapper green lighten-1">
+              <div className="container">
+                <a href="/" className="brand-logo">GroceryApp</a>
+                <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
+              
+                <ul id="nav-mobile" className="right hide-on-med-and-down">
+                  <li><a href="/signup"><i className="material-icons left" >person_add</i>Signup</a></li>
+                  <li><a href="/login"><i className="material-icons left">person</i>Login</a></li>
+                </ul>
+              </div>
             </div>
-          </div>
-        </nav>
+          </nav>
+        </div>
 
         {/* mobile nav */}
-        <ul className="sidenav" id="mobile-demo">
-          <li><a href="/signup"><i className="material-icons left" >person_add</i>Signup</a></li>
-          <li><a href="/login"><i className="material-icons left">person</i>Login</a></li>
-        </ul>
+
+          <ul className="sidenav" id="mobile-demo">
+            <li><a href="/signup"><i className="material-icons left" >person_add</i>Signup</a></li>
+            <li><a href="/login"><i className="material-icons left">person</i>Login</a></li>
+          </ul>
+
         
       </>
 
