@@ -23,7 +23,7 @@ function Success() {
         
       setTimeout(() => {
         window.location.assign('/');
-      }, 5000);
+      }, 8000);
     }
 
     saveOrder();
@@ -34,12 +34,19 @@ function Success() {
       <Jumbotron>
 
         <h2>
-          Thank you for your purchase!
+          Your grocery is on the way!
         </h2>
-          <img src="https://media.giphy.com/media/xUOxfg0ESyhKOv4Vva/giphy.gif"/>
-        <h2>
+
+        <div className="container">
+        <img src="https://media.giphy.com/media/xUOxfg0ESyhKOv4Vva/giphy.gif"/>
+        </div>
+
+        <h3>
+          Thank you for your purchase! 
+          <br/>
+          <br/>
           You will now be redirected to the home page
-        </h2>
+        </h3>
 
         <div className="preloader-wrapper big active">
           <div className="spinner-layer spinner-blue">
