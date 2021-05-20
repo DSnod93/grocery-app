@@ -27,14 +27,14 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // use this for deployment
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/build/index.html'));
-});
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, '../client/build/index.html'));
+// });
 
 // use this while on development
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, '../client/public/index.html'));
-// });
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/public/index.html'));
+});
 
 db.once('open', () => {
   app.listen(PORT, () => {
