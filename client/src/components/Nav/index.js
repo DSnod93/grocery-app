@@ -17,9 +17,9 @@ function Nav() {
         <>
           <div className="navbar-fixed">
           <nav>
-            <div className="nav-wrapper lime darken-3">
+            <div className="nav-wrapper orange lighten-1">
               <div className="container">
-                <a href="/" className="brand-logo">GroceryApp</a>
+                <a href="/" className="brand-logo">TheFoodChain</a>
                 <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
                 <ul id="nav-mobile" className="right hide-on-med-and-down">
                   <li><a href="/orderHistory"><i className="material-icons left" >history</i>Order History</a></li>
@@ -46,9 +46,9 @@ function Nav() {
         <>
         <div className="navbar-fixed">
           <nav>
-            <div className="nav-wrapper green lighten-1">
+            <div className="nav-wrapper orange lighten-1">
               <div className="container">
-                <a href="/" className="brand-logo">GroceryApp</a>
+                <a href="/" className="brand-logo">TheFoodChain</a>
                 <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
               
                 <ul id="nav-mobile" className="right hide-on-med-and-down">
@@ -72,23 +72,7 @@ function Nav() {
 
       );
     }
-  
 
-  // return (
-  //   <div>
-  //     <nav>
-  //       <div className="nav-wrapper green lighten-1">
-  //           <a href="/" className="brand-logo">GroceryApp</a>
-  //           <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
-  //           <ul id="nav-mobile" className="right hide-on-med-and-down">
-  //             {showNavigation()}
-  //           </ul>
-  //       </div>
-  //     </nav>
-
-  //   </div>
-
-  // );
 }
 
 export default Nav;

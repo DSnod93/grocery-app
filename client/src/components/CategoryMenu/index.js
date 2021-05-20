@@ -45,14 +45,14 @@ function CategoryMenu() {
       <br/>
       <div className="row">
           <div className="col s4">
-            <a className="waves-effect waves-teal btn-flat" onClick={() => {
+            <a className="waves-effect waves-orange lighten-3 btn-flat" onClick={() => {
                 handleClick()}}>
             ALL
             </a>
           </div>
         {categories.map(item => (
           <div className="col s4" key={item._id}>
-            <a className="waves-effect waves-teal btn-flat"
+            <a className="waves-effect waves-orange lighten-3 btn-flat"
               key={item._id}
               onClick={() => {
                 handleClick(item._id);

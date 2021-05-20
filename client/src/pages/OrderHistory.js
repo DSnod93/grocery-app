@@ -27,7 +27,7 @@ function OrderHistory() {
             <p>Order History for {user.firstName} {user.lastName}</p>
             {user.orders.map((order) => (
             <ul className="collection with-header" key={order._id}>
-              <li className="collection-header"><p>{new Date(parseInt(order.purchaseDate)).toLocaleDateString()}</p></li>
+              <li className="collection-header orange accent-1"><p>{new Date(parseInt(order.purchaseDate)).toLocaleDateString()}</p></li>
               {order.products.map(({ _id, image, name, price }, index) => (
               <li className="collection-item" key={index}>
                   <Link to={`/products/${_id}`}>

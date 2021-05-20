@@ -56,7 +56,7 @@ function ProductItem(item) {
             <p>{quantity} {pluralize("item", quantity)} in stock</p>
           </div>
           <div className="card-action">
-            <button className="btn waves-effect waves-light deep-orange darken-3 " onClick={addToCart}>ADD TO CART</button>
+            <button className="btn waves-effect waves-light orange darken-2 " onClick={addToCart}>ADD TO CART</button>
           </div>
         </div>
       </div>
