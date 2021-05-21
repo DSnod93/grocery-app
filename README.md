@@ -6,11 +6,11 @@ The goal of this work is create a mobile-friendly e-commerce/grocery app using M
 
 ## Members
 
-- Helen (FE): HTML, CSS, React, Materialize, Project Presentation PPT, Design, Jira, and Project Assets 
+- [Sang "Helen" Yi](https://github.com/sangyi05)  (FE): HTML, CSS, React, Materialize, Project Presentation PPT, Design, Jira, and Project Assets 
 
-- Douglas (BE + FE): MongoDB, GraphQL, HTML, React, Version Control, QA, Jira, and Database Management
+- [Douglas Snoddy Jr](https://github.com/DSnod93) (BE + FE): MongoDB, GraphQL, HTML, React, Version Control, QA, Jira, and Database Management
 
-- Ben (FE + BE): HTML, CSS, React, Materialize, MongoDB, GraphQL, Stripe, Jira, JWT, QA, and Project Management  
+- [Ben Tan](https://github.com/bctan87) (FE + BE): HTML, CSS, React, Materialize, MongoDB, GraphQL, Stripe, Jira, JWT, QA, and Project Management  
 
 ## Deployment
 
