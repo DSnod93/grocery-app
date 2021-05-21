@@ -72,6 +72,18 @@ function Nav() {
 
       );
     }
+<<<<<<< HEAD
+=======
+  }
+
+  return (
+    <header className="flex-row px-1">
+      <h1>
+        <Link to="/">
+          The Food Chain
+        </Link>
+      </h1>
+>>>>>>> client
 
 }
 
