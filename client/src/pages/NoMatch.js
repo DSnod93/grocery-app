@@ -10,7 +10,7 @@ const NoMatch = () => {
               <h1>SORRY</h1>
               <div className="card">
                 <div className="card-image">
-                  <img src={process.env.PUBLIC_URL + "images/404.jpg"} alt="404"/>
+                  <img src={process.env.PUBLIC_URL + "/images/404.jpg"} alt="404"/>
                   <span className="card-title text-black">SORRY</span>
                 </div>
                 <div className="card-content">
